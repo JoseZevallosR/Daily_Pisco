@@ -1,0 +1,117 @@
+
+R version 3.2.2 (2015-08-14) -- "Fire Safety"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R es un software libre y viene sin GARANTIA ALGUNA.
+Usted puede redistribuirlo bajo ciertas circunstancias.
+Escriba 'license()' o 'licence()' para detalles de distribucion.
+
+R es un proyecto colaborativo con muchos contribuyentes.
+Escriba 'contributors()' para obtener más información y
+'citation()' para saber cómo citar R o paquetes de R en publicaciones.
+
+Escriba 'demo()' para demostraciones, 'help()' para el sistema on-line de ayuda,
+o 'help.start()' para abrir el sistema de ayuda HTML con su navegador.
+Escriba 'q()' para salir de R.
+
+> 
+> 
+> #instalacion de librerias necesarias 
+> if (require(sp)==F) install.packages('sp',repos='http://cran.us.r-project.org')
+Loading required package: sp
+Warning message:
+package 'sp' was built under R version 3.2.4 
+> if (require(shiny)==F) install.packages('shiny',repos='http://cran.us.r-project.org')
+Loading required package: shiny
+Warning message:
+package 'shiny' was built under R version 3.2.5 
+> if (require(zoo)==F) install.packages('zoo',repos='http://cran.us.r-project.org')
+Loading required package: zoo
+
+Attaching package: 'zoo'
+
+The following objects are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
+Warning message:
+package 'zoo' was built under R version 3.2.4 
+> if (require(rgeos)==F) install.packages('rgeos',repos='http://cran.us.r-project.org')
+Loading required package: rgeos
+rgeos version: 0.3-19, (SVN revision 524)
+ GEOS runtime version: 3.5.0-CAPI-1.9.0 r4084 
+ Linking to sp version: 1.2-3 
+ Polygon checking: TRUE 
+
+Warning message:
+package 'rgeos' was built under R version 3.2.5 
+> if (require(gstat)==F) install.packages('gstat',repos='http://cran.us.r-project.org')
+Loading required package: gstat
+Warning message:
+package 'gstat' was built under R version 3.2.4 
+> if (require(automap)==F) install.packages('automap',repos='http://cran.us.r-project.org')
+Loading required package: automap
+Warning message:
+package 'automap' was built under R version 3.2.4 
+> if (require(rgdal)==F) install.packages('rgdal',repos='http://cran.us.r-project.org')
+Loading required package: rgdal
+rgdal: version: 1.1-8, (SVN revision 616)
+ Geospatial Data Abstraction Library extensions to R successfully loaded
+ Loaded GDAL runtime: GDAL 2.0.1, released 2015/09/15
+ Path to GDAL shared files: C:/Users/joseaugusto/Anaconda/Lib/site-packages/rpy2/rgdal/gdal
+ GDAL does not use iconv for recoding strings.
+ Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+ Path to PROJ.4 shared files: C:/Users/joseaugusto/Anaconda/Lib/site-packages/rpy2/rgdal/proj
+ Linking to sp version: 1.2-2 
+Warning message:
+package 'rgdal' was built under R version 3.2.4 
+> if (require(hydroGOF)==F) install.packages('hydroGOF',repos='http://cran.us.r-project.org')
+Loading required package: hydroGOF
+Warning message:
+package 'hydroGOF' was built under R version 3.2.4 
+> if (require(raster)==F) install.packages('raster',repos='http://cran.us.r-project.org')
+Loading required package: raster
+Warning message:
+package 'raster' was built under R version 3.2.4 
+> if (require(gdalUtils)==F) install.packages('gdalUtils',repos='http://cran.us.r-project.org')
+Loading required package: gdalUtils
+Warning message:
+package 'gdalUtils' was built under R version 3.2.5 
+> if (require(RCurl)==F) install.packages('RCurl',repos='http://cran.us.r-project.org')
+Loading required package: RCurl
+Loading required package: bitops
+Warning message:
+package 'RCurl' was built under R version 3.2.3 
+> if (require(XML)==F) install.packages('XML',repos='http://cran.us.r-project.org')
+Loading required package: XML
+Warning message:
+package 'XML' was built under R version 3.2.3 
+> #if (require(RSelenium)==F) install.packages('RSelenium',repos='http://cran.us.r-project.org')
+> if (require(doSNOW)==F) install.packages('doSNOW',repos='http://cran.us.r-project.org')
+Loading required package: doSNOW
+Loading required package: foreach
+Loading required package: iterators
+Loading required package: snow
+Warning messages:
+1: package 'doSNOW' was built under R version 3.2.5 
+2: package 'foreach' was built under R version 3.2.5 
+3: package 'iterators' was built under R version 3.2.3 
+4: package 'snow' was built under R version 3.2.3 
+> if (require(foreach)==F) install.packages('foreach',repos='http://cran.us.r-project.org')
+> if (require(leaflet)==F) install.packages('leaflet',repos='http://cran.us.r-project.org')
+Loading required package: leaflet
+Warning message:
+package 'leaflet' was built under R version 3.2.5 
+> if (require(tcltk)==F) install.packages('tcltk',repos='http://cran.us.r-project.org')
+Loading required package: tcltk
+> 
+> 
+> library(shiny)
+> 
+> 
+> path0='C:/Control'
+> 
+> runApp(appDir = path0,launch.browser = T)
+
+Listening on http://127.0.0.1:5953
