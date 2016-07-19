@@ -8,6 +8,7 @@ library(raster)
 require(gdalUtils)
 require(RCurl)
 library(XML)
+library(hydroGOF)
 
 
 #path="/home/senamhi-01/Documentos/data_products/Entregable"
@@ -570,4 +571,20 @@ extraccion=function(puntos,ras){
   resultado=data.frame(nombre=puntos[[1]],x=puntos[[2]],y=puntos[[3]],z=puntos[[4]])
   resultado=cbind(resultado,datos)
   resultado
+}
+
+
+tablas=function(obs1,prod){
+  estadisticos=matrix(data=0,nrow = dim(obs1)[1],ncol = 4)
+  for (i in 1:dim(obs1)[1]){
+    nn=dim(obs1)[2]
+    sim=as.numeric(prod[i,5:nn])
+    obs=as.numeric(obs1[i,5:nn])
+    f=gof(sim,obs,na.rm = T)
+    estadisticos[i,]=c(f["RMSE",],f["r",],f["NSE",],f["PBIAS %",])
+  }
+  resultados=as.data.frame(estadisticos)
+  resultados=cbind(obs1$NOMBRE,resultados)
+  names(resultados)=c('Nombres','RMSE','r','NSE',"PBIAS")
+  resultados
 }
